@@ -1,13 +1,14 @@
-# =============================================================
-# CVGenie – Resume Based AI Chatbot using Gemini API
-# =============================================================
-
 # ----- Import Gemini Library -----
+import os
+from dotenv import load_dotenv
 from google import genai
+
+# ----- Load Environment Variables -----
+load_dotenv()
 
 # ----- Create Gemini Client -----
 client = genai.Client(
-    api_key="YOUR_API_KEY"
+    api_key=os.getenv("GEMINI_API_KEY")
 )
 
 # ----- Store Resume Information -----
