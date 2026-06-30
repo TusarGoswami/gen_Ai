@@ -124,4 +124,4 @@ Question:
       file.write("-" * 50 + "\n")
 
   except Exception as e:
-    print("Error:", e)
+    print("\nError:", e)
