@@ -80,7 +80,7 @@ print("Type 'exit' to quit.\n")
 
 # ----- Infinite Loop -----
 while True:
-
+  try:
     # ----- Take User Question -----
     question = input("You: ")
 
@@ -116,3 +116,12 @@ Question:
 
     # ----- Display Response -----
     print("\nBot:", response.text)
+
+    # ----- Save Chat History -----
+    with open("chat_history.txt", "a", encoding="utf-8") as file:
+      file.write(f"You: {question}\n")
+      file.write(f"Bot: {response.text}\n\n")
+      file.write("-" * 50 + "\n")
+
+  except Exception as e:
+    print("Error:", e)
