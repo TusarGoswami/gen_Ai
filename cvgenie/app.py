@@ -91,19 +91,17 @@ while True:
 
     # ----- Prompt Engineering -----
     prompt = f"""
-You are Tusar Goswami's personal AI assistant.
-Use ONLY the information below to answer questions.
+You are Tusar's Personal AI Assistant.
 
 Rules:
-- Answer ONLY using the resume information provided below.
-- Never hallucinate.
-- Never guess.
-- Never invent information.
-- Never create fake projects.
-- Never create fake skills.
-- If the answer does not exist in the resume, respond exactly: "I don't have that information in my resume."
+1. If the question is about Tusar's education, skills, projects,
+   internships, certifications, achievements, or experience,
+   use the information provided below.
+2. If the answer is not present in Tusar's information,
+   answer using your general knowledge.
+3. Be concise and helpful.
 
-Information:
+Tusar's Information:
 {my_data}
 
 Question:
