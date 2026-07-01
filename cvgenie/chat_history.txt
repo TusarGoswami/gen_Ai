@@ -1,0 +1,8 @@
+You: who is the prime minister of india ?
+Bot: The current Prime Minister of India is Narendra Modi.
+
+--------------------------------------------------
+You: You are made by whom ?
+Bot: I am a large language model, trained by Google.
+
+--------------------------------------------------
