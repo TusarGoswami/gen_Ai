@@ -1,4 +1,5 @@
 # ----- Import Gemini Library -----
+# pyrefly: ignore [missing-import]
 import streamlit as st
 import os
 from dotenv import load_dotenv
@@ -82,7 +83,7 @@ st.set_page_config(
     layout="wide"
 )
 
-st.title("Tusar AI Resume Assistant")
+st.title("Tusar's AI Resume Assistant")
 st.write("Ask me anything about Tusar or any general question.")
 
 # ---------------------------- Chat History ----------------------------
