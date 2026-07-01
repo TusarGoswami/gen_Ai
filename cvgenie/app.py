@@ -1,4 +1,5 @@
 # ----- Import Gemini Library -----
+import streamlit as st
 import os
 from dotenv import load_dotenv
 from google import genai
@@ -74,54 +75,59 @@ Achievements:
 - Earned 5-star ratings in Java and C++ on HackerRank, validating expertise in OOP and systems-level development.
 """
 
-# ----- Display Startup Message -----
-print("CVGenie Started...")
-print("Type 'exit' to quit.\n")
+# ---------------------------- Page Settings ----------------------------
+st.set_page_config(
+    page_title="Tusar AI Assistant",
+    page_icon="🤖",
+    layout="wide"
+)
 
-# ----- Infinite Loop -----
-while True:
-  try:
-    # ----- Take User Question -----
-    question = input("You: ")
+st.title("Tusar AI Resume Assistant")
+st.write("Ask me anything about Tusar or any general question.")
 
-    # ----- Exit Condition -----
-    if question.lower() == "exit":
-        print("Bot: Goodbye!")
-        break
+# ---------------------------- Chat History ----------------------------
+if "messages" not in st.session_state:
+    st.session_state.messages = []
 
-    # ----- Prompt Engineering -----
+# Show old messages
+for message in st.session_state.messages:
+    with st.chat_message(message["role"]):
+        st.markdown(message["content"])
+
+# ---------------------------- User Input ----------------------------
+question = st.chat_input("Type your question...")
+if question:
+    # Display user message
+    st.session_state.messages.append({"role": "user", "content": question})
+    with st.chat_message("user"):
+        st.markdown(question)
+
+    # Build prompt
     prompt = f"""
-You are Tusar's Personal AI Assistant.
-
+You are Tusar's AI Assistant.
 Rules:
-1. If the question is about Tusar's education, skills, projects,
-   internships, certifications, achievements, or experience,
-   use the information provided below.
-2. If the answer is not present in Tusar's information,
-   answer using your general knowledge.
-3. Be concise and helpful.
+1. Answer using the resume if possible.
+2. Otherwise answer using general knowledge.
+3. Keep answers simple.
 
-Tusar's Information:
+Resume:
 {my_data}
 
 Question:
 {question}
 """
 
-    # ----- Generate Response -----
-    response = client.models.generate_content(
-        model="gemini-2.5-flash",
-        contents=prompt
-    )
+    # Generate response
+    try:
+        response = client.models.generate_content(
+            model="gemini-2.5-flash",
+            contents=prompt
+        )
+        answer = response.text
+    except Exception as e:
+        answer = f"Error: {e}"
 
-    # ----- Display Response -----
-    print("\nBot:", response.text)
-
-    # ----- Save Chat History -----
-    with open("chat_history.txt", "a", encoding="utf-8") as file:
-      file.write(f"You: {question}\n")
-      file.write(f"Bot: {response.text}\n\n")
-      file.write("-" * 50 + "\n")
-
-  except Exception as e:
-    print("\nError:", e)
+    # Display assistant response
+    st.session_state.messages.append({"role": "assistant", "content": answer})
+    with st.chat_message("assistant"):
+        st.markdown(answer)
