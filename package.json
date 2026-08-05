@@ -1,0 +1,13 @@
+{
+  "name": "bhai-ye-meme",
+  "version": "1.0.0",
+  "description": "Bhai Ye Meme Kyu Funny Hai? — RAG-powered Indian meme explainer",
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "client": "cd client && npm run dev",
+    "server": "cd server && npm run dev"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}

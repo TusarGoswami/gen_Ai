@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+.venv/
+
+# Environment
+.env
+.env.local
+
+# Build output
+dist/
+build/
+
+# ChromaDB persistent storage
+chroma_db/
+
+# Temp uploads
+server/temp_uploads/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
