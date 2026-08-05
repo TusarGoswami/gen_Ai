@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+/* ===== Base Styles ===== */
+:root {
+  --bg-primary: #0d0f17;
+  --bg-card: #151824;
+  --accent-pink: #ec4899;
+  --accent-purple: #a855f7;
+  --accent-teal: #14b8a6;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-primary);
+  color: #f3f4f6;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+}
+
+/* Custom gradient text utility */
+.gradient-text {
+  background: linear-gradient(135deg, #ec4899, #f59e0b, #10b981);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0d0f17;
+}
+::-webkit-scrollbar-thumb {
+  background: #ec4899;
+  border-radius: 3px;
+}
+
+/* Emotion badges */
+.emotion-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.emotion-Failure { background-color: rgba(239, 68, 68, 0.2); color: #fca5a5; }
+.emotion-Sadness { background-color: rgba(59, 130, 246, 0.2); color: #93c5fd; }
+.emotion-Sarcasm { background-color: rgba(168, 85, 247, 0.2); color: #c4b5fd; }
+.emotion-Confusion { background-color: rgba(251, 191, 36, 0.2); color: #fde68a; }
+.emotion-Relatability { background-color: rgba(34, 197, 94, 0.2); color: #86efac; }
+.emotion-Excitement { background-color: rgba(249, 115, 22, 0.2); color: #fdba74; }
+.emotion-Pride { background-color: rgba(236, 72, 153, 0.2); color: #f9a8d4; }
+.emotion-Cringe { background-color: rgba(139, 92, 246, 0.2); color: #c4b5fd; }
+
+/* Skeleton animation */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.skeleton {
+  background: linear-gradient(90deg, #1f2937 25%, #374151 50%, #1f2937 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
