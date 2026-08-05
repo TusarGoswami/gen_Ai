@@ -1,0 +1,19 @@
+{
+  "name": "bhai-ye-meme-server",
+  "version": "1.0.0",
+  "description": "Express backend for Bhai Ye Meme Kyu Funny Hai?",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch index.js",
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.21.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "multer": "^1.4.5-lts.1",
+    "@google/generative-ai": "^0.21.0",
+    "node-fetch": "^3.3.2"
+  }
+}
