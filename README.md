@@ -1,6 +1,8 @@
-# Bhai Ye Meme Kyu Funny Hai? 😂
+# Bhai Ye Meme Kyu Funny Hai? 😂 (`gen_Ai-Meme_Decoder`)
 
 > RAG-powered Indian internet culture meme explainer — Hinglish mein, AI ke saath!
+
+Repository: [https://github.com/TusarGoswami/gen_Ai-Meme_Decoder](https://github.com/TusarGoswami/gen_Ai-Meme_Decoder)
 
 A full-stack web app that explains Indian memes using a retrieval-augmented generation (RAG) pipeline with Gemini AI and ChromaDB.
 
